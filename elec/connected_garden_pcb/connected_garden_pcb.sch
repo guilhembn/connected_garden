@@ -14,17 +14,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L connected_garden_lib:TP4056-18650 U1
-U 1 1 5D27D33C
-P 1500 1150
-F 0 "U1" H 1475 1625 50  0000 C CNN
-F 1 "TP4056-18650" H 1475 1534 50  0000 C CNN
-F 2 "" H 1450 1150 50  0001 C CNN
-F 3 "" H 1450 1150 50  0001 C CNN
-	1    1500 1150
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	8150 3950 8150 4100
 $Comp
@@ -68,7 +57,7 @@ U 1 1 5D27D857
 P 6150 1400
 F 0 "U4" H 5920 1446 50  0000 R CNN
 F 1 "DHT11" H 5920 1355 50  0000 R CNN
-F 2 "" H 6300 1650 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 6300 1650 50  0001 C CNN
 F 3 "http://akizukidenshi.com/download/ds/aosong/DHT11.pdf" H 6300 1650 50  0001 C CNN
 	1    6150 1400
 	1    0    0    -1  
@@ -101,7 +90,7 @@ U 1 1 5D27D9DB
 P 1700 5150
 F 0 "U2" H 1700 5828 50  0000 C CNN
 F 1 "MCP3208" H 1700 5737 50  0000 C CNN
-F 2 "" H 1800 5250 50  0001 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm_Socket_LongPads" H 1800 5250 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21298c.pdf" H 1800 5250 50  0001 C CNN
 	1    1700 5150
 	1    0    0    -1  
@@ -169,7 +158,7 @@ U 1 1 5D27DEE5
 P 3650 1250
 F 0 "C1" H 3765 1296 50  0000 L CNN
 F 1 "1µF" H 3765 1205 50  0000 L CNN
-F 2 "" H 3688 1100 50  0001 C CNN
+F 2 "Capacitor_THT:C_Radial_D6.3mm_H7.0mm_P2.50mm" H 3688 1100 50  0001 C CNN
 F 3 "~" H 3650 1250 50  0001 C CNN
 	1    3650 1250
 	1    0    0    -1  
@@ -254,7 +243,7 @@ U 1 1 5D28047E
 P 3900 4550
 F 0 "J1" H 3927 4576 50  0000 L CNN
 F 1 "Moisture1" H 3927 4485 50  0000 L CNN
-F 2 "" H 3900 4550 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3900 4550 50  0001 C CNN
 F 3 "~" H 3900 4550 50  0001 C CNN
 	1    3900 4550
 	1    0    0    -1  
@@ -265,7 +254,7 @@ U 1 1 5D280531
 P 3900 4900
 F 0 "J2" H 3927 4926 50  0000 L CNN
 F 1 "Moisture2" H 3927 4835 50  0000 L CNN
-F 2 "" H 3900 4900 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3900 4900 50  0001 C CNN
 F 3 "~" H 3900 4900 50  0001 C CNN
 	1    3900 4900
 	1    0    0    -1  
@@ -276,7 +265,7 @@ U 1 1 5D280579
 P 3900 5250
 F 0 "J3" H 3927 5276 50  0000 L CNN
 F 1 "Moisture3" H 3927 5185 50  0000 L CNN
-F 2 "" H 3900 5250 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3900 5250 50  0001 C CNN
 F 3 "~" H 3900 5250 50  0001 C CNN
 	1    3900 5250
 	1    0    0    -1  
@@ -287,7 +276,7 @@ U 1 1 5D2805C7
 P 3900 5600
 F 0 "J4" H 3927 5626 50  0000 L CNN
 F 1 "Moisture4" H 3927 5535 50  0000 L CNN
-F 2 "" H 3900 5600 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3900 5600 50  0001 C CNN
 F 3 "~" H 3900 5600 50  0001 C CNN
 	1    3900 5600
 	1    0    0    -1  
@@ -298,7 +287,7 @@ U 1 1 5D28060D
 P 3900 5950
 F 0 "J5" H 3927 5976 50  0000 L CNN
 F 1 "Moisture5" H 3927 5885 50  0000 L CNN
-F 2 "" H 3900 5950 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3900 5950 50  0001 C CNN
 F 3 "~" H 3900 5950 50  0001 C CNN
 	1    3900 5950
 	1    0    0    -1  
@@ -419,7 +408,7 @@ U 1 1 5D28C0F8
 P 7200 2650
 F 0 "SW1" H 7200 2935 50  0000 C CNN
 F 1 "Reset" H 7200 2844 50  0000 C CNN
-F 2 "" H 7200 2850 50  0001 C CNN
+F 2 "Button_Switch_THT:SW_TH_Tactile_Omron_B3F-10xx" H 7200 2850 50  0001 C CNN
 F 3 "" H 7200 2850 50  0001 C CNN
 	1    7200 2650
 	1    0    0    -1  
@@ -441,7 +430,7 @@ U 1 1 5D294407
 P 7500 2400
 F 0 "R1" H 7570 2446 50  0000 L CNN
 F 1 "10k" H 7570 2355 50  0000 L CNN
-F 2 "" V 7430 2400 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 7430 2400 50  0001 C CNN
 F 3 "~" H 7500 2400 50  0001 C CNN
 	1    7500 2400
 	1    0    0    -1  
@@ -486,7 +475,7 @@ U 1 1 5D2990DC
 P 9050 3700
 F 0 "R2" H 9120 3746 50  0000 L CNN
 F 1 "10k" H 9120 3655 50  0000 L CNN
-F 2 "" V 8980 3700 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 8980 3700 50  0001 C CNN
 F 3 "~" H 9050 3700 50  0001 C CNN
 	1    9050 3700
 	1    0    0    -1  
@@ -501,7 +490,7 @@ U 1 1 5D2A576A
 P 9400 2200
 F 0 "R3" H 9470 2246 50  0000 L CNN
 F 1 "10k" H 9470 2155 50  0000 L CNN
-F 2 "" V 9330 2200 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 9330 2200 50  0001 C CNN
 F 3 "~" H 9400 2200 50  0001 C CNN
 	1    9400 2200
 	1    0    0    -1  
@@ -514,7 +503,7 @@ U 1 1 5D2A6CB1
 P 9600 2600
 F 0 "SW2" V 9554 2748 50  0000 L CNN
 F 1 "Flash" V 9645 2748 50  0000 L CNN
-F 2 "" H 9600 2800 50  0001 C CNN
+F 2 "Button_Switch_THT:SW_TH_Tactile_Omron_B3F-10xx" H 9600 2800 50  0001 C CNN
 F 3 "" H 9600 2800 50  0001 C CNN
 	1    9600 2600
 	0    1    1    0   
@@ -590,7 +579,7 @@ U 1 1 5D2E2005
 P 2350 1900
 F 0 "R4" H 2420 1946 50  0000 L CNN
 F 1 "1.8K" H 2420 1855 50  0000 L CNN
-F 2 "" V 2280 1900 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 2280 1900 50  0001 C CNN
 F 3 "~" H 2350 1900 50  0001 C CNN
 	1    2350 1900
 	1    0    0    -1  
@@ -601,7 +590,7 @@ U 1 1 5D2E20C8
 P 2350 2300
 F 0 "R5" H 2420 2346 50  0000 L CNN
 F 1 "5K" H 2420 2255 50  0000 L CNN
-F 2 "" V 2280 2300 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 2280 2300 50  0001 C CNN
 F 3 "~" H 2350 2300 50  0001 C CNN
 	1    2350 2300
 	1    0    0    -1  
@@ -649,12 +638,12 @@ Wire Wire Line
 Text Label 950  5350 0    50   ~ 0
 A5
 $Comp
-L Connector:Screw_Terminal_01x02 J?
+L Connector:Screw_Terminal_01x02 J6
 U 1 1 5D2F0189
 P 650 1200
-F 0 "J?" H 570 875 50  0000 C CNN
+F 0 "J6" H 570 875 50  0000 C CNN
 F 1 "Screw_Terminal_01x02" H 570 966 50  0000 C CNN
-F 2 "" H 650 1200 50  0001 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 650 1200 50  0001 C CNN
 F 3 "~" H 650 1200 50  0001 C CNN
 	1    650  1200
 	-1   0    0    1   
@@ -667,17 +656,6 @@ Wire Wire Line
 	950  1400 950  1200
 Wire Wire Line
 	950  1200 850  1200
-$Comp
-L Connector:Conn_01x03_Female J?
-U 1 1 5D2F4476
-P 8350 5100
-F 0 "J?" H 8377 5126 50  0000 L CNN
-F 1 "Conn_01x03_Female" H 8377 5035 50  0000 L CNN
-F 2 "" H 8350 5100 50  0001 C CNN
-F 3 "~" H 8350 5100 50  0001 C CNN
-	1    8350 5100
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	8150 5000 8000 5000
 Wire Wire Line
@@ -689,10 +667,10 @@ RX
 Text Label 8000 5100 0    50   ~ 0
 TX
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0101
 U 1 1 5D2FA87B
 P 8000 5200
-F 0 "#PWR?" H 8000 4950 50  0001 C CNN
+F 0 "#PWR0101" H 8000 4950 50  0001 C CNN
 F 1 "GND" H 8005 5027 50  0000 C CNN
 F 2 "" H 8000 5200 50  0001 C CNN
 F 3 "" H 8000 5200 50  0001 C CNN
@@ -700,12 +678,12 @@ F 3 "" H 8000 5200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R6
 U 1 1 5D2FAB4C
 P 6550 1250
-F 0 "R?" H 6620 1296 50  0000 L CNN
+F 0 "R6" H 6620 1296 50  0000 L CNN
 F 1 "R" H 6620 1205 50  0000 L CNN
-F 2 "" V 6480 1250 50  0001 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6480 1250 50  0001 C CNN
 F 3 "~" H 6550 1250 50  0001 C CNN
 	1    6550 1250
 	1    0    0    -1  
@@ -724,4 +702,26 @@ Wire Wire Line
 	8750 3050 8850 3050
 Text Label 8850 3050 0    50   ~ 0
 DHT11Data
+$Comp
+L Connector:Conn_01x03_Female J7
+U 1 1 5D2F4476
+P 8350 5100
+F 0 "J7" H 8377 5126 50  0000 L CNN
+F 1 "UART out" H 8377 5035 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 8350 5100 50  0001 C CNN
+F 3 "~" H 8350 5100 50  0001 C CNN
+	1    8350 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L connected_garden_lib:TP4056-18650 U1
+U 1 1 5D383666
+P 1500 1150
+F 0 "U1" H 1475 1625 50  0000 C CNN
+F 1 "TP4056-18650" H 1475 1534 50  0000 C CNN
+F 2 "connected_garden_footprints:TP4056-18650" H 1450 1150 50  0001 C CNN
+F 3 "" H 1450 1150 50  0001 C CNN
+	1    1500 1150
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
