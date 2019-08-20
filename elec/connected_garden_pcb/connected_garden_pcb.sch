@@ -90,7 +90,7 @@ U 1 1 5D27D9DB
 P 1700 5150
 F 0 "U2" H 1700 5828 50  0000 C CNN
 F 1 "MCP3208" H 1700 5737 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm_Socket_LongPads" H 1800 5250 50  0001 C CNN
+F 2 "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" H 1800 5250 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21298c.pdf" H 1800 5250 50  0001 C CNN
 	1    1700 5150
 	1    0    0    -1  

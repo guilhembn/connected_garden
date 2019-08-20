@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/guilhem/Documents/connected_garden/elec/connected_garden_pcb/connected_garden_pcb.sch)
-    (date "mar. 23 juil. 2019 20:07:31 CEST")
+    (date "mar. 20 août 2019 19:27:05 CEST")
     (tool "Eeschema 5.0.2-bee76a0~70~ubuntu16.04.1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -24,7 +24,7 @@
       (tstamp 5D27D857))
     (comp (ref U2)
       (value MCP3208)
-      (footprint Package_DIP:DIP-16_W7.62mm_Socket_LongPads)
+      (footprint Package_SO:SOIC-16_3.9x9.9mm_P1.27mm)
       (datasheet http://ww1.microchip.com/downloads/en/DeviceDoc/21298c.pdf)
       (libsource (lib Analog_ADC) (part MCP3208) (description "A/D Converter, 12-Bit, 8-Channel, SPI Interface , 2.7V-5.5V"))
       (sheetpath (names /) (tstamps /))
