@@ -63,28 +63,6 @@ F 3 "http://akizukidenshi.com/download/ds/aosong/DHT11.pdf" H 6300 1650 50  0001
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR013
-U 1 1 5D27D90E
-P 6050 1700
-F 0 "#PWR013" H 6050 1450 50  0001 C CNN
-F 1 "GND" H 6055 1527 50  0000 C CNN
-F 2 "" H 6050 1700 50  0001 C CNN
-F 3 "" H 6050 1700 50  0001 C CNN
-	1    6050 1700
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3.3V #PWR012
-U 1 1 5D27D940
-P 6050 1100
-F 0 "#PWR012" H 6050 950 50  0001 C CNN
-F 1 "+3.3V" H 6065 1273 50  0000 C CNN
-F 2 "" H 6050 1100 50  0001 C CNN
-F 3 "" H 6050 1100 50  0001 C CNN
-	1    6050 1100
-	1    0    0    -1  
-$EndComp
-$Comp
 L Analog_ADC:MCP3208 U2
 U 1 1 5D27D9DB
 P 1700 5150
@@ -350,28 +328,6 @@ Wire Wire Line
 	3700 5700 3350 5700
 Wire Wire Line
 	3700 6050 3350 6050
-$Comp
-L power:+3.3V #PWR08
-U 1 1 5D2869C9
-P 3500 4350
-F 0 "#PWR08" H 3500 4200 50  0001 C CNN
-F 1 "+3.3V" H 3515 4523 50  0000 C CNN
-F 2 "" H 3500 4350 50  0001 C CNN
-F 3 "" H 3500 4350 50  0001 C CNN
-	1    3500 4350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR09
-U 1 1 5D286A13
-P 3600 6250
-F 0 "#PWR09" H 3600 6000 50  0001 C CNN
-F 1 "GND" H 3605 6077 50  0000 C CNN
-F 2 "" H 3600 6250 50  0001 C CNN
-F 3 "" H 3600 6250 50  0001 C CNN
-	1    3600 6250
-	1    0    0    -1  
-$EndComp
 Text Label 3350 4650 0    50   ~ 0
 A0
 Text Label 3350 5000 0    50   ~ 0
@@ -690,7 +646,6 @@ F 3 "~" H 6550 1250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6550 1100 6050 1100
-Connection ~ 6050 1100
 Wire Wire Line
 	6550 1400 6450 1400
 Wire Wire Line
@@ -724,4 +679,112 @@ F 3 "" H 1450 1150 50  0001 C CNN
 	1    1500 1150
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	8750 3250 8850 3250
+$Comp
+L Transistor_FET:BUZ11 Q1
+U 1 1 5D69C850
+P 6400 4950
+F 0 "Q1" H 6606 4996 50  0000 L CNN
+F 1 "BUZ11" H 6606 4905 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 6650 4875 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BU/BUZ11.pdf" H 6400 4950 50  0001 L CNN
+	1    6400 4950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5950 4950 6100 4950
+Wire Wire Line
+	6100 4950 6100 5050
+Connection ~ 6100 4950
+Wire Wire Line
+	6100 4950 6200 4950
+$Comp
+L Device:R R7
+U 1 1 5D6A3F8B
+P 5800 4950
+F 0 "R7" V 5593 4950 50  0000 C CNN
+F 1 "220" V 5684 4950 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5730 4950 50  0001 C CNN
+F 3 "~" H 5800 4950 50  0001 C CNN
+	1    5800 4950
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R8
+U 1 1 5D6A4022
+P 6100 5200
+F 0 "R8" H 6170 5246 50  0000 L CNN
+F 1 "10K" H 6170 5155 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6030 5200 50  0001 C CNN
+F 3 "~" H 6100 5200 50  0001 C CNN
+	1    6100 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6100 5350 6100 5400
+$Comp
+L power:GND #PWR0102
+U 1 1 5D6A69AA
+P 6100 5400
+F 0 "#PWR0102" H 6100 5150 50  0001 C CNN
+F 1 "GND" H 6105 5227 50  0000 C CNN
+F 2 "" H 6100 5400 50  0001 C CNN
+F 3 "" H 6100 5400 50  0001 C CNN
+	1    6100 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0103
+U 1 1 5D6A6B94
+P 6500 5150
+F 0 "#PWR0103" H 6500 4900 50  0001 C CNN
+F 1 "GND" H 6505 4977 50  0000 C CNN
+F 2 "" H 6500 5150 50  0001 C CNN
+F 3 "" H 6500 5150 50  0001 C CNN
+	1    6500 5150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5650 4950 5550 4950
+Wire Wire Line
+	6500 4750 6500 4600
+Wire Wire Line
+	6500 4600 6600 4600
+Wire Wire Line
+	6600 4450 6500 4450
+Wire Wire Line
+	6500 4450 6500 4350
+$Comp
+L power:+3.3V #PWR0104
+U 1 1 5D6B17B3
+P 6500 4350
+F 0 "#PWR0104" H 6500 4200 50  0001 C CNN
+F 1 "+3.3V" H 6515 4523 50  0000 C CNN
+F 2 "" H 6500 4350 50  0001 C CNN
+F 3 "" H 6500 4350 50  0001 C CNN
+	1    6500 4350
+	1    0    0    -1  
+$EndComp
+Text Label 6600 4450 0    50   ~ 0
+3.3V_EN
+Text Label 6600 4600 0    50   ~ 0
+GND_EN
+Text Label 5550 4950 0    50   ~ 0
+MOSG
+Text Label 8850 3250 0    50   ~ 0
+MOSG
+Wire Wire Line
+	6050 1100 6050 1000
+Connection ~ 6050 1100
+Text Label 6050 1000 0    50   ~ 0
+3.3V_EN
+Wire Wire Line
+	6050 1700 6050 1800
+Text Label 6050 1800 0    50   ~ 0
+GND_EN
+Text Label 3500 4350 0    50   ~ 0
+3.3V_EN
+Text Label 3600 6250 0    50   ~ 0
+GND_EN
 $EndSCHEMATC
