@@ -40,5 +40,6 @@ void loop() {
     }
 
   }
+  ESP.deepSleep(5 * 1000000);
   delay(500000000);
 }
