@@ -1,9 +1,16 @@
 #include <Arduino.h>
+#include <WiFiHandler.h>
 
+WiFiHandler wifi;
 void setup() {
-  // put your setup code here, to run once:
+  Serial.begin(115200);
+  wifi = WiFiHandler("MywifiSSID", "Mywificode");
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  if (wifi.isWiFiNetworkAvailable()){
+    Serial.println("network available");
+    wifi.connect();
+  }
+  delay(500000000);
 }
