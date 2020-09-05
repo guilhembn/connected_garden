@@ -24,6 +24,9 @@ bool EEPROMManager::clearStoredData(){
 
 bool EEPROMManager::saveData(const StoredData* data){
     uStoredData uData;
+    if (_storedDataSize >= MAX_DATA){
+        return false;
+    }
     uData.data = *data;
     int start_address = STORED_DATA_ADDRESS + _storedDataSize * sizeof(StoredData);
     for (unsigned int i = 0; i < sizeof(StoredData); i++){
