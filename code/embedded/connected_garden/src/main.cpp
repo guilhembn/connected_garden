@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <Config.h>
 #include <WiFiHandler.h>
 #include <Datetime.h>
 #include <EEPROMManager.h>
@@ -13,7 +14,7 @@ DHT11 dht11;
 
 void setup() {
   Serial.begin(115200);
-  wifi = WiFiHandler("MySSID", "MyPassword");
+  wifi = WiFiHandler(NETWORK_SSID, NETWORK_PASSWORD);
   dht11.setup(D1);
 }
 
