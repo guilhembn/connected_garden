@@ -3,15 +3,17 @@
 #include <Datetime.h>
 #include <EEPROMManager.h>
 #include <StoredData.h>
+#include <DHT11.h>
 
 WiFiHandler wifi;
 Datetime datetime;
 EEPROMManager eepromManager;
+DHT11 dht11;
 
 
 void setup() {
   Serial.begin(115200);
-  wifi = WiFiHandler("MywifiSSID", "Mywificode");
+  dht11.setup(D1);
 }
 
 void loop() {
@@ -24,7 +26,17 @@ void loop() {
 
     //eepromManager.clearStoredData();
 
-    //StoredData data1 = {.timestamp = now, .temperature = -10};
+    uint16_t temp, hum;
+    if (!dht11.measure(&hum, &temp)){
+      Serial.println("Error while reading DHT11");
+      ESP.deepSleep(5 * 1000000);
+    }
+
+    Serial.println("DHT11 read:");
+    Serial.print(temp);
+    Serial.print("°C and ");
+    Serial.print(hum);
+    Serial.println("% humidity");
     //StoredData data2 = {.timestamp = now + 3600, .temperature = 50};
     //eepromManager.saveData(&data1);
     //eepromManager.saveData(&data2);
