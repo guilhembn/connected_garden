@@ -13,7 +13,7 @@ struct StoredData{
 union uStoredData
 {
     StoredData data;
-    uint8_t bytes[];
+    uint8_t bytes[sizeof(StoredData)];
 } __attribute__((packed));
 
 

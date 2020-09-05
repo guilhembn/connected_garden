@@ -24,4 +24,5 @@ bool WiFiHandler::connect(){
         Serial.print(".");
     }
     Serial.println("\nConnected.");
+    return true;
 }

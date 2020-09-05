@@ -11,7 +11,7 @@ EEPROMManager::EEPROMManager(){
 }
 
 bool EEPROMManager::clearStoredData(){
-    for (int i=STORED_DATA_ADDRESS; i < EEPROM_SIZE; i++){
+    for (unsigned int i=STORED_DATA_ADDRESS; i < EEPROM_SIZE; i++){
         EEPROM.write(i, 0);
     }
     EEPROM.write(STORED_DATA_SIZE_ADDRESS, 0);

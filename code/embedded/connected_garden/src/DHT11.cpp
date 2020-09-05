@@ -9,7 +9,7 @@ bool DHT11::measure(uint16_t* humidity, uint16_t* temperature){
     if (millis() - _lastMeasureTime < MIN_MEASURE_PERIOD){
         return false;
     }
-    uint16_t data, rawHumidity, rawTemperature;
+    uint16_t data = 0, rawHumidity = 0, rawTemperature = 0;
     // Request sample
 	digitalWrite(_pin, LOW); // Send start signal
 	pinMode(_pin, OUTPUT);
