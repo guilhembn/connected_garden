@@ -37,8 +37,10 @@ void loop() {
     Serial.print("°C and ");
     Serial.print(hum);
     Serial.println("% humidity");
+
+    StoredData data = {.timestamp = now, .temperature = temp, .humidity = hum};
     //StoredData data2 = {.timestamp = now + 3600, .temperature = 50};
-    //eepromManager.saveData(&data1);
+    eepromManager.saveData(&data);
     //eepromManager.saveData(&data2);
 
     StoredData dataLoaded[50];
@@ -48,7 +50,9 @@ void loop() {
       Serial.print(datetime.toStr(dataLoaded[i].timestamp));
       Serial.print(" @ ");
       Serial.print(dataLoaded[i].temperature);
-      Serial.println();
+      Serial.print("°C and humidity: ");
+      Serial.print(dataLoaded[i].humidity);
+      Serial.println("%");
     }
 
   }

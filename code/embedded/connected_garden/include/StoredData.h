@@ -5,7 +5,9 @@
 
 struct StoredData{
     time_t timestamp;
-    float temperature;
+    uint16_t temperature;
+    uint16_t humidity;
+
 }  __attribute__((packed));
 
 union uStoredData
