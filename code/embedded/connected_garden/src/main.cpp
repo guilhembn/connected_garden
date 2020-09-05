@@ -13,6 +13,7 @@ DHT11 dht11;
 
 void setup() {
   Serial.begin(115200);
+  wifi = WiFiHandler("MySSID", "MyPassword");
   dht11.setup(D1);
 }
 
