@@ -5,11 +5,13 @@
 #include <EEPROMManager.h>
 #include <StoredData.h>
 #include <DHT11.h>
+#include <ServerInterface.h>
 
 WiFiHandler wifi;
 Datetime datetime;
 EEPROMManager eepromManager;
 DHT11 dht11;
+ServerInterface server;
 
 
 void setup() {
@@ -31,7 +33,7 @@ void loop() {
     uint16_t temp, hum;
     if (!dht11.measure(&hum, &temp)){
       Serial.println("Error while reading DHT11");
-      ESP.deepSleep(5 * 1000000);
+      ESP.deepSleep(30 * 60 * 1000000);
     }
 
     Serial.println("DHT11 read:");
@@ -40,7 +42,7 @@ void loop() {
     Serial.print(hum);
     Serial.println("% humidity");
 
-    StoredData data = {.timestamp = now, .temperature = temp, .humidity = hum};
+    /*StoredData data = {.timestamp = now, .temperature = temp, .humidity = hum};
     //StoredData data2 = {.timestamp = now + 3600, .temperature = 50};
     eepromManager.saveData(&data);
     //eepromManager.saveData(&data2);
@@ -55,9 +57,9 @@ void loop() {
       Serial.print("°C and humidity: ");
       Serial.print(dataLoaded[i].humidity);
       Serial.println("%");
-    }
+    }*/
+    server.sendMeasurement(now, temp, hum);
 
   }
-  ESP.deepSleep(5 * 1000000);
-  delay(500000000);
+  ESP.deepSleep(30 * 60 * 1000000);
 }
