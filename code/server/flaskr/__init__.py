@@ -32,4 +32,10 @@ def create_app(test_config=None):
     from . import db
     db.init_app(app)
 
+    from . import esp_api
+    app.register_blueprint(esp_api.bp)
+
+    from . import frontend
+    app.register_blueprint(frontend.bp)
+
     return app
