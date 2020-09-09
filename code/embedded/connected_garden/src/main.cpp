@@ -24,10 +24,11 @@ void setup() {
 }
 
 void loop() {
+  time_t now;
   if (wifi.isWiFiNetworkAvailable()){
     Serial.println("network available");
     wifi.connect();
-    time_t now = datetime.now();
+    now = datetime.now();
     Serial.print("Formatted Time: ");
     Serial.println(datetime.toStr(now));
 
@@ -36,6 +37,7 @@ void loop() {
     uint16_t temp, hum;
     if (!dht11.measure(&hum, &temp)){
       Serial.println("Error while reading DHT11");
+      eepromManager.saveLastSleep(now, defaultParams.sleepDuration);
       ESP.deepSleep(defaultParams.sleepDuration * 1000000);
     }
 
@@ -61,7 +63,6 @@ void loop() {
       Serial.print(dataLoaded[i].humidity);
       Serial.println("%");
     }*/
-    server.sendMeasurement(now, temp, hum);
 
     // We have wifi! Let's try to send the data we saved to the server
     bool success = true;
@@ -75,7 +76,7 @@ void loop() {
         success = false;
         break;
       }
-  }
+    }
     if (success){
       // All stored data sent. We can clear our memory
       eepromManager.clearStoredData();
@@ -83,4 +84,19 @@ void loop() {
     if (!server.sendMeasurement(now, temp, hum)){
       eepromManager.saveData(now, temp, hum, false);
     }
+  }else{
+    time_t lastSleepTime;
+    unsigned long lastSleepDuration;
+    eepromManager.loadLastSleep(&lastSleepTime, &lastSleepDuration);
+    now = datetime.estimatedNow(lastSleepTime, lastSleepDuration);
+    uint16_t temp, hum;
+    if (!dht11.measure(&hum, &temp)){
+      Serial.println("Error while reading DHT11");
+      eepromManager.saveLastSleep(now, defaultParams.sleepDuration);
+      ESP.deepSleep(defaultParams.sleepDuration * 1000000);
+    }
+    eepromManager.saveData(now, temp, hum, true);
+  }
+  eepromManager.saveLastSleep(now, defaultParams.sleepDuration);
+  ESP.deepSleep(defaultParams.sleepDuration * 1000000);
 }
