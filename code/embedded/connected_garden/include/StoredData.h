@@ -3,6 +3,16 @@
 
 #include <TimeLib.h>
 
+struct LastSleep{
+    time_t lastSleepTime;
+    unsigned long lastSleepDuration;
+} __attribute__((packed));
+
+union uLastSleep{
+    LastSleep data;
+    uint8_t bytes[sizeof(LastSleep)];
+} __attribute__((packed));
+
 struct StoredData{
     time_t timestamp;
     uint16_t temperature;
