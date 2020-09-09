@@ -3,9 +3,9 @@
 #include <WiFiHandler.h>
 #include <Datetime.h>
 #include <EEPROMManager.h>
-#include <StoredData.h>
 #include <DHT11.h>
 #include <ServerInterface.h>
+#include <Params.h>
 
 WiFiHandler wifi;
 Datetime datetime;
@@ -13,11 +13,14 @@ EEPROMManager eepromManager;
 DHT11 dht11;
 ServerInterface server;
 
+Params defaultParams;
+
 
 void setup() {
   Serial.begin(115200);
   wifi = WiFiHandler(NETWORK_SSID, NETWORK_PASSWORD);
   dht11.setup(D1);
+  defaultParams = {.sleepDuration = 32*60};
 }
 
 void loop() {
@@ -33,7 +36,7 @@ void loop() {
     uint16_t temp, hum;
     if (!dht11.measure(&hum, &temp)){
       Serial.println("Error while reading DHT11");
-      ESP.deepSleep(30 * 60 * 1000000);
+      ESP.deepSleep(defaultParams.sleepDuration * 1000000);
     }
 
     Serial.println("DHT11 read:");

@@ -2,7 +2,7 @@
 #define PARAMS_H
 struct Params
 {
-    /* data */
+    unsigned long sleepDuration; //sec
 };
 
 #endif /* PARAMS_H */
