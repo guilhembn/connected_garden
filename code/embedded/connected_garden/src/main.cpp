@@ -60,6 +60,24 @@ void loop() {
     }*/
     server.sendMeasurement(now, temp, hum);
 
+    // We have wifi! Let's try to send the data we saved to the server
+    bool success = true;
+    time_t times[50];
+    uint16_t temps[50], hums[50];
+    bool estStamps[50];
+    unsigned int nLoaded = eepromManager.loadData(times, temps, hums, estStamps);
+    for (unsigned int i = 0; i < nLoaded; i++){
+      if (!server.sendMeasurement(times[i], temps[i], hums[i])){
+        // Some data did not make it to the server... We will try again next time
+        success = false;
+        break;
+      }
   }
-  ESP.deepSleep(30 * 60 * 1000000);
+    if (success){
+      // All stored data sent. We can clear our memory
+      eepromManager.clearStoredData();
+    }
+    if (!server.sendMeasurement(now, temp, hum)){
+      eepromManager.saveData(now, temp, hum, false);
+    }
 }
