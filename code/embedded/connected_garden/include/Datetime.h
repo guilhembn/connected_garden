@@ -15,6 +15,7 @@ class Datetime{
         _timeClient.setTimeOffset(0);
     };
     time_t now();
+    time_t estimatedNow(const time_t sleepTime, const unsigned long sleepDuration);
 
     String toStr(time_t time);
 
