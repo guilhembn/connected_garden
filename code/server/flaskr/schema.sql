@@ -4,5 +4,6 @@ CREATE TABLE measure (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     timestamp INTEGER NOT NULL,
     temperature INTEGER,
-    humidity INTEGER
+    humidity INTEGER,
+    estimatedTimestamp INTEGER
 );

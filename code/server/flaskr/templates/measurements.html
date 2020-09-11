@@ -7,7 +7,7 @@
 {% block content %}
     {% for measure in measures %}
         <div class="measure">
-            {{ measure['readable_timestamp'] }}: {{ measure['temperature'] }}°C @ {{ measure['humidity'] }}% humidity
+            {{ measure['readable_timestamp'] }}{% if measure['estimated_timestamp'] == 1 %}*{% else %} {% endif %}: {{ measure['temperature'] }}°C @ {{ measure['humidity'] }}% humidity
         </div>
     {% endfor %}
 {% endblock %}
