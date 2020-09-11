@@ -6,7 +6,7 @@ ServerInterface::ServerInterface(){
 
 }
 
-bool ServerInterface::sendMeasurement(const time_t timestamp, const uint16_t temperature, const uint16_t humidity){
+bool ServerInterface::sendMeasurement(const time_t timestamp, const uint16_t temperature, const uint16_t humidity, bool isTimestampEstimated){
     WiFiClientSecure client;
     String host = SERVER_HOST, url = SERVER_NEW_MEASUREMENT_URL;
     int port = SERVER_PORT;
@@ -41,11 +41,11 @@ bool ServerInterface::sendMeasurement(const time_t timestamp, const uint16_t tem
         Content-Type: application/x-www-form-urlencoded
         Content-Length: 47
 
-        timestamp=1599400956&temperature=25&humidity=41
+        timestamp=1599400956&temperature=25&humidity=41&timestampEstimated=1
         Connection: close
         
     */
-    String body = String("timestamp=") + timestamp + "&temperature=" + temperature + "&humidity=" + humidity;
+    String body = String("timestamp=") + timestamp + "&temperature=" + temperature + "&humidity=" + humidity + "&timestampestimated=" + isTimestampEstimated;
 
     String header = String("POST ") + url + " HTTP/1.1\r\n" +
                 "Host: " + host + "\r\n" +

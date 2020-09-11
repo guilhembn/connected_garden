@@ -71,7 +71,7 @@ void loop() {
     bool estStamps[50];
     unsigned int nLoaded = eepromManager.loadData(times, temps, hums, estStamps);
     for (unsigned int i = 0; i < nLoaded; i++){
-      if (!server.sendMeasurement(times[i], temps[i], hums[i])){
+      if (!server.sendMeasurement(times[i], temps[i], hums[i], estStamps[i])){
         // Some data did not make it to the server... We will try again next time
         success = false;
         break;
@@ -81,7 +81,7 @@ void loop() {
       // All stored data sent. We can clear our memory
       eepromManager.clearStoredData();
     }
-    if (!server.sendMeasurement(now, temp, hum)){
+    if (!server.sendMeasurement(now, temp, hum, false)){
       eepromManager.saveData(now, temp, hum, false);
     }
   }else{
