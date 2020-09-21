@@ -26,6 +26,7 @@ bool ServerInterface::sendMeasurement(const time_t timestamp, const uint16_t tem
     }
     if(r==30) {
         Serial.println("Connection failed");
+        return false;
     }
     else {
         Serial.println("Connected to web");
@@ -70,17 +71,15 @@ bool ServerInterface::sendMeasurement(const time_t timestamp, const uint16_t tem
         break;
         }
     }
-    
-    Serial.println("reply was:");
-    Serial.println("==========");
-    // TODO check if reply was success
     String line;
-    while(client.available()){        
-        line = client.readStringUntil('\n');  //Read Line by Line
-        Serial.println(line); //Print response
+    if (client.available()){        
+        line = client.readString();  //Read Line by Line
+        Serial.println(line);
+        if (line == "{\"success\":true}\n"){
+            client.stopAll();
+            return true;
+        }
     }
-    Serial.println("==========");
-    Serial.println("closing connection");
     client.stopAll();
-    return true;
+    return false;
 }
