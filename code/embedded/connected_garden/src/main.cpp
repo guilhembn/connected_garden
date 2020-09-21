@@ -27,8 +27,16 @@ void loop() {
   time_t now;
   if (wifi.isWiFiNetworkAvailable()){
     Serial.println("network available");
-    wifi.connect();
+
+    bool isTimeEstimated = false;
     now = datetime.now();
+    if (now <= 0.0){
+      time_t lastSleepTime;
+      unsigned long lastSleepDuration;
+      eepromManager.loadLastSleep(&lastSleepTime, &lastSleepDuration);
+      now = datetime.estimatedNow(lastSleepTime, lastSleepDuration);
+      isTimeEstimated = true;
+    }
     Serial.print("Formatted Time: ");
     Serial.println(datetime.toStr(now));
 
@@ -47,23 +55,6 @@ void loop() {
     Serial.print(hum);
     Serial.println("% humidity");
 
-    /*StoredData data = {.timestamp = now, .temperature = temp, .humidity = hum};
-    //StoredData data2 = {.timestamp = now + 3600, .temperature = 50};
-    eepromManager.saveData(&data);
-    //eepromManager.saveData(&data2);
-
-    StoredData dataLoaded[50];
-    unsigned int n = eepromManager.loadData(dataLoaded);
-    for (unsigned int i = 0; i < n; i++){
-      Serial.println("Loaded data: ");
-      Serial.print(datetime.toStr(dataLoaded[i].timestamp));
-      Serial.print(" @ ");
-      Serial.print(dataLoaded[i].temperature);
-      Serial.print("°C and humidity: ");
-      Serial.print(dataLoaded[i].humidity);
-      Serial.println("%");
-    }*/
-
     // We have wifi! Let's try to send the data we saved to the server
     bool success = true;
     time_t times[50];
@@ -81,8 +72,8 @@ void loop() {
       // All stored data sent. We can clear our memory
       eepromManager.clearStoredData();
     }
-    if (!server.sendMeasurement(now, temp, hum, false)){
-      eepromManager.saveData(now, temp, hum, false);
+    if (!server.sendMeasurement(now, temp, hum, isTimeEstimated)){
+      eepromManager.saveData(now, temp, hum, isTimeEstimated);
     }
   }else{
     time_t lastSleepTime;

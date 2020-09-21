@@ -6,6 +6,8 @@
 #include <WiFiUdp.h>
 class Datetime{
     private:
+    static const unsigned short NTP_MAX_RETRIES = 5;
+
     WiFiUDP _ntpUDP;
     NTPClient _timeClient;
 
