@@ -6,22 +6,30 @@ WiFiHandler::WiFiHandler(String networkName, String networkPwd): _networkName(ne
 
 }
 
-bool WiFiHandler::isWiFiNetworkAvailable(){
-    int n = WiFi.scanNetworks();
-    for (int i = 0; i < n; i++){
-        if (WiFi.SSID(i) == _networkName){
-            return true;
+bool WiFiHandler::isWiFiNetworkAvailable(const uint8_t maxRetries){
+    for (unsigned int retries = 0; retries < maxRetries; retries++){
+        int n = WiFi.scanNetworks();
+        for (int i = 0; i < n; i++){
+            if (WiFi.SSID(i) == _networkName){
+                return true;
+            }
         }
+        delay(WIFI_SCAN_DELAY);
     }
     return false;
 }
 
-bool WiFiHandler::connect(){
+bool WiFiHandler::connect(const uint8_t maxRetries){
+    uint8_t retries = 0;
     WiFi.mode(WIFI_STA); 
-    WiFi.begin(_networkName, _networkPwd);   //your password
+    WiFi.begin(_networkName, _networkPwd);
     while (WiFi.status() != WL_CONNECTED) {
-        delay(500);
+        if (retries > maxRetries){
+            return false;
+        }
+        delay(WIFI_CONNECT_DELAY);
         Serial.print(".");
+        retries++;
     }
     Serial.println("\nConnected.");
     return true;

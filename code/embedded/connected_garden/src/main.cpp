@@ -25,7 +25,7 @@ void setup() {
 
 void loop() {
   time_t now;
-  if (wifi.isWiFiNetworkAvailable()){
+  if (wifi.isWiFiNetworkAvailable() && wifi.connect()){
     Serial.println("network available");
 
     bool isTimeEstimated = false;
