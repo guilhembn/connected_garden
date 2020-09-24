@@ -9,7 +9,7 @@ class EEPROMManager{
     const static unsigned int STORED_DATA_LAST_SLEEP_ADDRESS = 0;
     const static unsigned int STORED_DATA_SIZE_ADDRESS = STORED_DATA_LAST_SLEEP_ADDRESS + sizeof(LastSleep);
     const static unsigned int STORED_DATA_ADDRESS = STORED_DATA_SIZE_ADDRESS + sizeof(unsigned int);
-    const static unsigned int MAX_DATA = (EEPROM_SIZE - STORED_DATA_ADDRESS) / sizeof(StoredData);
+    const static unsigned int MAX_DATA = (EEPROM_SIZE - STORED_DATA_ADDRESS) / sizeof(StoredData) - 1;
 
     const static uint8_t TIMESTAMP_ESTIMATED_BIT = 0b10000000;
     unsigned int _storedDataSize;
