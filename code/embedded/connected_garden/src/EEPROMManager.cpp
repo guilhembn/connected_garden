@@ -52,6 +52,11 @@ bool EEPROMManager::saveData(const time_t timestamp, const uint16_t temperature,
 unsigned int EEPROMManager::loadData(time_t* timestamps, uint16_t* temperatures, uint16_t* humidities, bool* timestampEstimated){
     uStoredData uData;
     unsigned int beginningAddress;
+    if (_storedDataSize > MAX_DATA){
+        // Data is corrupted
+        clearStoredData();
+        return 0;
+    }
     for (unsigned int i = 0; i < _storedDataSize; i++){
         beginningAddress = STORED_DATA_ADDRESS + i * sizeof(StoredData);
         for (unsigned int j = 0; j < sizeof(StoredData); j++){
