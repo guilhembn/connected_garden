@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block content %}
-    {% for measure in measures %}
-        <div class="measure">
-            {{ measure['readable_timestamp'] }}{% if measure['estimated_timestamp'] == 1 %}*{% else %} {% endif %}: {{ measure['temperature'] }}°C @ {{ measure['humidity'] }}% humidity
-        </div>
-    {% endfor %}
+<div class="chart-container" style="position: relative; height:40vh; width:80vw">
+    <canvas id="test_plot"></canvas>
+</div>
+<button onclick="getData('day')">Day</button>
+<button onclick="getData('all')">All</button>
 {% endblock %}
