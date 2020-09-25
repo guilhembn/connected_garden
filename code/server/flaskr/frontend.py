@@ -23,7 +23,10 @@ def plot():
         elif time_range == "all":
             min_time = 0
         measures = db.execute("SELECT timestamp, temperature, humidity, estimatedTimestamp AS estimated_timestamp FROM measure WHERE timestamp >= ? ORDER BY timestamp DESC", (min_time,)).fetchall()
-        return jsonify({"data": [{"timestamp": m["timestamp"], "temperature": m["temperature"], "humidity": m["humidity"]} for m in measures]})
+        return jsonify({"data": [{"timestamp": m["timestamp"],
+                                 "temperature": m["temperature"], 
+                                 "humidity": m["humidity"], 
+                                 "timestamp_estimated": m["estimated_timestamp"]} for m in measures]})
     return jsonify({"data": []})
 
 
